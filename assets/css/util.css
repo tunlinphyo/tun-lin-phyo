@@ -1,0 +1,31 @@
+:root {
+    --space-0: 4px;
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+    --space-7: 96px;
+
+    --weight-1: 100;
+    --weight-2: 200;
+    --weight-3: 300;
+    --weight-4: 400;
+    --weight-5: 600;
+    --weight-6: 800;
+
+    --max-width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: var(--weight-4);
+}

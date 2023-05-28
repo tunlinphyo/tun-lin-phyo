@@ -1,0 +1,43 @@
+.clients {
+  width: 100%;
+  min-height: 16vh;
+
+  /* margin-top: 5vh; */
+  border-top: 1px solid var(--surface-4);
+  border-bottom: 1px solid var(--surface-4);
+  overflow: hidden;
+  background-color: var(--surface-1);
+  background-image:  radial-gradient(var(--primary) 0.5px, transparent 0.5px), radial-gradient(var(--primary) 0.5px, var(--surface-1) 0.5px);
+  background-size: 30px 30px;
+  background-position: 0 0,15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.client--list {
+  width: 100%;
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+}
+.client--logo {
+  display: block;
+  text-decoration: none;
+  font-size: clamp(1rem, 5vw, 1.4rem);
+  font-weight: var(--weight-3);
+  color: var(--text-3);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform .3s ease;
+}
+.client--logo:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,800&display=swap');
+@import url(./normalize.css);
+@import url(./color-palette.css);
+@import url(./keyframes.css);
+@import url(./util.css);
+@import url(./header.css);
+@import url(./intro.css);
+@import url(./clients.css);
+@import url(./technical.css);
+@import url(./projects.css);
+@import url(./footer.css);
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--text-1);
+}
+
+body::after {
+    content: '';
+    display: block;
+    position: fixed;
+    z-index: -1;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    
+    background-color: var(--surface-1);
+    background-image:  linear-gradient(var(--surface-2) 1px, transparent 1px), linear-gradient(to right, var(--surface-2) 1px, var(--surface-1) 1px);
+    background-size: 25px 25px;
+}
+
+main {
+    width: 100%;
+    min-height: 100%;
+}
+
+.spacer {
+    flex: 1;
+    min-height: var(--space-4);
+}
+
+h2 {
+    font-size: clamp(1.2rem, 6vw, 2.2rem);
+    font-weight: var(--weight-3);
+}
+
