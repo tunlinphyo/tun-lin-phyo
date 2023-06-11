@@ -1,9 +1,9 @@
 import "./assets/css/style.css"
 import { openCard, closeCard, openEnd, closeEnd } from "./assets/js/card"
-import { customClock, toggleImage, projectTimeline } from "./assets/js/project"
+// import { customClock, toggleImage, projectTimeline } from "./assets/js/project"
 
 window.onload = () => {
-    projectTimeline()
+    document.body.style.overflow = 'hidden'
 
     const cards = document.querySelectorAll('.technical--card-inner') 
     cards.forEach(card => {
@@ -17,17 +17,46 @@ window.onload = () => {
         })
     })
 
-    const yomiImgs = document.querySelectorAll('.project--display .yomi')
-    const hanablishImgs = document.querySelectorAll('.project--display .hanabishi')
-    const inhouseImgs = document.querySelectorAll('.project--display .inhouse')
-    let yomiIndex = 0, hanabishiIndex = 0, inhouseIndex = 0
-    customClock(
-        () => {
-            yomiIndex = toggleImage(yomiImgs, yomiIndex)
-            hanabishiIndex = toggleImage(hanablishImgs, hanabishiIndex)
-            inhouseIndex = toggleImage(inhouseImgs, inhouseIndex)
-        }, 
-        {interval: 2000 }
+    setTimeout(() => welcomeOut(), 2000)
+}
+
+function welcomeOut() {
+    const welcome = document.querySelector('.welcome')
+    const elem = welcome.querySelector('.intro--title')
+
+    const startRect = elem.getBoundingClientRect()
+    welcome.classList.remove('init')
+    const endRect = elem.getBoundingClientRect()
+
+    elem.animate(
+        [
+            { 
+                top: `${startRect.y}px`, 
+                left: `${startRect.x}px`, 
+                fontSize: 'clamp(2rem, 12vw, 6rem)',
+                webkitFontSize: 'clamp(2rem, 12vw, 6rem)',
+                userSelect: 'text',
+                fontWeight: 'var(--weight-6)',
+                position: 'fixed',
+                zIndex: 0,
+              },
+              { 
+                top: `${endRect.y}px`, 
+                left: `${endRect.x}px`, 
+                fontSize: '1.4rem',
+                webkitFontSize: '1.4rem',
+                userSelect: 'text',
+                fontWeight: 'var(--weight-3)',
+                position: 'fixed',
+                zIndex: 9,
+              },
+        ],
+        { duration: 700, easing: 'ease' }
     )
 
+    elem.addEventListener('transitionend', () => {
+        document.body.style.overflow = 'initial'
+        document.querySelector('.intro--container').classList.add('show-child')
+    })
+    
 }

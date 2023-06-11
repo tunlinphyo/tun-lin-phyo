@@ -49,3 +49,30 @@ h2 {
     font-weight: var(--weight-3);
 }
 
+.welcome.init {
+    position: fixed;
+    z-index: 4;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+
+    background-color: var(--surface-1);
+    background-image:  linear-gradient(var(--surface-2) 1px, transparent 1px), linear-gradient(to right, var(--surface-2) 1px, var(--surface-1) 1px);
+    background-size: 25px 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.welcome.init .welcome--continer {
+    width: 700px;
+    padding: var(--space-4);
+}
+.welcome.init .intro--title {
+    font-size: clamp(2rem, 12vw, 6rem);
+    --webkit-font-size: clamp(2rem, 12vw, 6rem);
+    font-weight: var(--weight-6);
+    /* animation: 
+        cyberpunk-glitch 6s step-end infinite,
+        skew-glitch 6s step-end infinite; */
+    text-shadow: .12em .12em 0 var(--primary);
+}

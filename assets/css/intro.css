@@ -20,7 +20,10 @@
 }
 .intro--title {
   font-size: 1.4rem;
+  --webkit-font-size: 1.4rem;
   margin: 0;
+  white-space: nowrap;
+  transition: text-shadow .4s ease-in;
 }
 .intro--summary {
   overflow: hidden;
@@ -33,9 +36,9 @@
   line-height: 1.2;
   margin: 2rem 0;
   font-weight: var(--weight-6);
-  animation: 
-    cyberpunk-glitch 6s step-end infinite,
-    skew-glitch 6s step-end infinite;
+  /* animation: 
+    cyberpunk-glitch 10s step-end infinite,
+    skew-glitch 10s step-end infinite; */
   text-shadow: .12em .12em 0 var(--primary);
 }
 .intro--continue {
@@ -73,6 +76,13 @@
     padding-bottom: 10vh;
   }
 } */
+.intro--container > *:not(.welcome) {
+  opacity: 0;
+}
+.intro--container.show-child > *:not(.welcome) {
+  opacity: 1;
+  animation: slide-up .5s ease;
+}
 @media (min-width: 992px) {
   .intro--summary h2 {
     font-size: clamp(2rem, 5.9vw, 8rem);
