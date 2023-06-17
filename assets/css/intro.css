@@ -40,6 +40,10 @@
     cyberpunk-glitch 10s step-end infinite,
     skew-glitch 10s step-end infinite; */
   text-shadow: .12em .12em 0 var(--primary);
+  
+  /* -webkit-text-fill-color: transparent; 
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--text-1); */
 }
 .intro--continue {
   margin-top: 4vh;
