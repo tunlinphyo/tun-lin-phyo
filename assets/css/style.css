@@ -1,78 +1,63 @@
+@layer reset, theme, animation, util, component;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,800&display=swap');
-@import url(./normalize.css);
-@import url(./color-palette.css);
-@import url(./keyframes.css);
-@import url(./util.css);
-@import url(./header.css);
-@import url(./intro.css);
-@import url(./clients.css);
-@import url(./technical.css);
-@import url(./projects.css);
-@import url(./footer.css);
+@import url(./normalize.css) layer(reset);
+@import url(./color-palette.css) layer(theme);
+@import url(./colors.css) layer(theme);
+@import url(./keyframes.css) layer(animation);
+@import url(./util.css) layer(util);
+@import url(./header.css) layer(component);
+@import url(./intro.css) layer(component);
+@import url(./gallery.css) layer(component);
+@import url(./clients.css) layer(component);
+@import url(./technical.css) layer(component);
+@import url(./projects.css) layer(component);
+@import url(./footer.css) layer(component);
 
-html, body {
-    width: 100%;
-    min-height: 100%;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
+a,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+html,
 body {
-    margin: 0;
-    padding: 0;
-    color: var(--text-1);
+    inline-size: 100%;
+    min-block-size: 100%;
 }
 
-body::after {
-    content: '';
-    display: block;
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, var(--neo-start), var(--neo-end));
+}
+
+.data-output {
     position: fixed;
-    z-index: -1;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-    
-    background-color: var(--surface-1);
-    background-image:  linear-gradient(var(--surface-2) 1px, transparent 1px), linear-gradient(to right, var(--surface-2) 1px, var(--surface-1) 1px);
-    background-size: 25px 25px;
-}
+    z-index: 99;
+    bottom: 10px;
+    left: 15px;
+    font-size: 12px;
+    pointer-events: none;
 
-main {
-    width: 100%;
-    min-height: 100%;
-}
-
-.spacer {
-    flex: 1;
-    min-height: var(--space-4);
-}
-
-h2 {
-    font-size: clamp(1.2rem, 6vw, 2.2rem);
-    font-weight: var(--weight-3);
-}
-
-.welcome.init {
-    position: fixed;
-    z-index: 4;
-    top: 0; bottom: 0;
-    left: 0; right: 0;
-
-    background-color: var(--surface-1);
-    background-image:  linear-gradient(var(--surface-2) 1px, transparent 1px), linear-gradient(to right, var(--surface-2) 1px, var(--surface-1) 1px);
-    background-size: 25px 25px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.welcome.init .welcome--continer {
-    width: 700px;
-    padding: var(--space-4);
-}
-.welcome.init .intro--title {
-    font-size: clamp(2rem, 12vw, 6rem);
-    --webkit-font-size: clamp(2rem, 12vw, 6rem);
-    font-weight: var(--weight-6);
-    /* animation: 
-        cyberpunk-glitch 6s step-end infinite,
-        skew-glitch 6s step-end infinite; */
-    text-shadow: .12em .12em 0 var(--primary);
+    color: hsl(0 0% 100% / 0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: linear-gradient(90deg, var(--neo-200-start), var(--neo-200-end));
 }

@@ -1,0 +1,52 @@
+.gallery {
+    position: absolute;
+    right: 0;
+    inline-size: 40%;
+    max-inline-size: 280px;
+    display: grid;
+    overflow: hidden;
+
+    transform: translateX(-20%) rotate(-6deg);
+    opacity: .7;
+    background-image: linear-gradient(to bottom, var(--neo-start), var(--neo-end));
+
+    > * {
+        grid-area: 1 / 1;
+        max-block-size: 100%;
+    }
+
+    .mask {
+        display: grid;
+        max-inline-size: 100%;
+        max-block-size: 100%;
+        --pos-left: calc(var(--pos, 0%) - 1px);
+        --pos-right: calc(var(--pos, 0%) + 1px);
+
+        @media (min-width: 768px) {
+            --pos-left: calc(var(--pos, 0%) - 2px);
+            --pos-right: calc(var(--pos, 0%) + 2px);
+        }
+
+        .image {
+            grid-area: 1 / 1;
+            display: grid;
+            place-items: center;
+
+            > img {
+                max-inline-size: 100%;
+                max-block-size: 100%;
+                aspect-ratio: 3 / 4;
+            }
+        }
+
+        &.left {
+            mask: linear-gradient(to right, #000 0, var(--pos, 0%), #0000 0);
+            -webkit-mask: linear-gradient(to right, #000 0, var(--pos-left, 0%), #0000 0);
+        }
+
+        &.right {
+            mask: linear-gradient(to right, #0000 0, var(--pos, 100%), #000 0);
+            -webkit-mask: linear-gradient(to right, #0000 0, var(--pos-right, 100%), #000 0);
+        }
+    }
+}

@@ -1,0 +1,69 @@
+:root {
+    /* BDF  */
+
+    --deg-30: #F99;
+    --deg-60: #FC9;
+    --deg-90: #FF9;
+    --deg-120: #CF9;
+    --deg-150: #9F9;
+    --deg-180: #9FC;
+    --deg-210: #9FF;
+    --deg-240: #9CF;
+    --deg-270: #99F;
+    --deg-300: #C9F;
+    --deg-330: #F9F;
+    --deg-360: #F9C;
+
+    /* @media (prefers-color-scheme: dark) {
+        --deg-30: #FDD;
+        --deg-60: #FED;
+        --deg-90: #FFD;
+        --deg-120: #EFD;
+        --deg-150: #DFD;
+        --deg-180: #DFE;
+        --deg-210: #DFF;
+        --deg-240: #DEF;
+        --deg-270: #DDF;
+        --deg-300: #EDF;
+        --deg-330: #FDF;
+        --deg-360: #FDE;
+    } */
+
+    .one {
+        background: linear-gradient(to left, var(--deg-30), var(--deg-60));
+    }
+    .two {
+        background: linear-gradient(to right, var(--deg-60), var(--deg-90));
+    }
+    .three {
+        background: linear-gradient(to left, var(--deg-90), var(--deg-120));
+    }
+    .four {
+        background: linear-gradient(to right, var(--deg-120), var(--deg-150));
+    }
+    .five {
+        background: linear-gradient(to left, var(--deg-150), var(--deg-180));
+    }
+    .six {
+        background: linear-gradient(to right, var(--deg-180), var(--deg-210));
+    }
+    .seven {
+        background: linear-gradient(to left, var(--deg-210), var(--deg-240));
+    }
+    .eight {
+        background: linear-gradient(to right, var(--deg-240), var(--deg-270));
+    }
+    .nine {
+        background: linear-gradient(to left, var(--deg-270), var(--deg-300));
+    }
+    .ten {
+        background: linear-gradient(to right, var(--deg-300), var(--deg-330));
+    }
+    .eleven {
+        background: linear-gradient(to left, var(--deg-330), var(--deg-360));
+    }
+    .twelve {
+        background: linear-gradient(to right, var(--deg-360), var(--deg-30));
+    }
+}
+

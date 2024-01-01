@@ -20,6 +20,24 @@
   }
 }
 
+@keyframes background-size {
+  from {
+      background-size: 0% 100%;
+  }
+  to {
+      background-size: 100% 100%;
+  }
+}
+
+@keyframes underline {
+  from {
+      background-size: 0% 1px;
+  }
+  to {
+      background-size: 100% 1px;
+  }
+}
+
 @keyframes slide-up {
   from {
     opacity: 0;

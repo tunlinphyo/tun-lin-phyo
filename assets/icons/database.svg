@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 682.667 682.667"
   style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+  <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color: #F44; stop-opacity: 1" />
+    <stop offset="100%" style="stop-color: #44F; stop-opacity: 1" />
+  </linearGradient>
   <g>
     <defs>
       <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -107,7 +111,7 @@
         data-original="#020288" class=""></path>
       <path
         d="M0 0c59.007 0 107.134 48.126 107.134 107.134 0 59.007-48.127 107.133-107.134 107.133s-107.134-48.126-107.134-107.133C-107.134 48.126-59.007 0 0 0"
-        style="fill-opacity:1;fill-rule:evenodd;stroke:none" transform="translate(404.865 .003)" fill="#e2c4ff"
+        style="fill-opacity:1;fill-rule:evenodd;stroke:none" transform="translate(404.865 .003)" fill="url(#myGradient)"
         data-original="#e2c4ff" class=""></path>
       <path d="M0 0a81.623 81.623 0 0 0 115.436 0"
         style="stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.926;stroke-dasharray:none;stroke-opacity:1"
