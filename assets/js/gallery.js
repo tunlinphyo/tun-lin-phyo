@@ -4,7 +4,14 @@ export default class Gallery {
         this.leftImages = this.elem.querySelectorAll('.left > .image')
         this.rightImages = this.elem.querySelectorAll('.right > .image')
 
-        this.run()
+        this.init()
+    }
+
+    init() {
+        const mediaQuery = window.matchMedia('(min-width: 501px)')
+        if (mediaQuery.matches) {
+            this.run()
+        }
     }
 
     run() {
@@ -16,7 +23,7 @@ export default class Gallery {
 
         leftIndex = this.increaseIndex(this.leftImages, leftIndex)
         rightIndex = this.increaseIndex(this.rightImages, rightIndex)
-    
+
         const checkTime = () => {
             if (increase) {
                 if (currentNum < 110) {
@@ -33,11 +40,11 @@ export default class Gallery {
                     leftIndex = this.increaseIndex(this.leftImages, leftIndex)
                 }
             }
-    
+
             this.setCssProperty(currentNum)
             requestAnimationFrame(checkTime)
         }
-    
+
         requestAnimationFrame(checkTime)
     }
 

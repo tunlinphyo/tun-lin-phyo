@@ -16,6 +16,10 @@
         max-block-size: 100%;
     }
 
+    @media (max-width: 500px) {
+        display: none;
+    }
+
     .mask {
         display: grid;
         max-inline-size: 100%;

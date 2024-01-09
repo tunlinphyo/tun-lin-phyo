@@ -37,20 +37,15 @@ export default class ToggleCard {
             zIndex: [9, 9],
             begin: () => {
                 elem.style.pointerEvents = 'none'
+                this.layer.classList.add('show')
             },
-            update: (anim) => {
-                if (Math.round(anim.progress) >= 5 && Math.round(anim.progress) <= 10) {
-                    this.layer.classList.add('show')
-                }
-                if (Math.round(anim.progress) >= 30 && Math.round(anim.progress) <= 35) {
-                    this.animateSkills(elem)
-                }
-            },
-            easing: 'easeOutElastic',
-            // duration: 500,
+            // easing: 'easeOutElastic',
+            easing: 'cubicBezier(0.25, 0.1, 0.25, 1.0)',
+            duration: 500,
         });
 
         animation.finished.then(() => {
+            this.animateSkills(elem)
             elem.style.pointerEvents = 'auto'
             elem.removeAttribute('style')
             this.openEnd(elem)
@@ -71,18 +66,14 @@ export default class ToggleCard {
             left: [`${domRect.x}px`, `${endRect.x}px`],
             width: [`${domRect.width}px`, `${endRect.width}px`],
             height: [`${domRect.height}px`, `${endRect.height}px`],
+            zIndex: [9, 0],
             begin: () => {
-                elem.style.zIndex = 9
                 elem.style.pointerEvents = 'none'
                 this.layer.classList.remove('show')
             },
-            update: (anim) => {
-                if (Math.round(anim.progress) >= 5 && Math.round(anim.progress) <= 10) {
-                    elem.style.zIndex = 0
-                }
-            },
-            easing: 'easeOutElastic',
-            // duration: 500,
+            // easing: 'easeOutElastic',
+            easing: 'cubicBezier(0.25, 0.1, 0.25, 1.0)',
+            duration: 500,
         });
 
         animation.finished.then(() => {

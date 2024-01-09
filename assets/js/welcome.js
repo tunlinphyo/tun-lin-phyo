@@ -56,24 +56,28 @@ export default class Welcome {
             easing: 'easeOutBounce',
         })
 
-        const gallery = document.querySelector('.gallery')
 
-        const animation = anime({
-            targets: gallery,
-            translateX: ['-20%', '-20%'],
-            rotate: ['186deg', '-6deg'],
-            duration: 3000,
-            begin() {
-                gallery.style.pointerEvents = 'none'
-            },
-            complete() {
-                gallery.style.pointerEvents = 'auto'
-            }
-        })
+        const mediaQuery = window.matchMedia('(min-width: 501px)')
+        if (mediaQuery.matches) {
+            const gallery = document.querySelector('.gallery')
 
-        gallery.addEventListener('click', () => {
-            animation.play()
-        })
+            const animation = anime({
+                targets: gallery,
+                translateX: ['-20%', '-20%'],
+                rotate: ['186deg', '-6deg'],
+                duration: 3000,
+                begin() {
+                    gallery.style.pointerEvents = 'none'
+                },
+                complete() {
+                    gallery.style.pointerEvents = 'auto'
+                }
+            })
+
+            gallery.addEventListener('click', () => {
+                animation.play()
+            })
+        }
     }
 }
 
