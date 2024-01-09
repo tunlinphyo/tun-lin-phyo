@@ -29,10 +29,10 @@ export default class Welcome {
                 {
                     top: `${endRect.y}px`,
                     left: `${endRect.x}px`,
-                    fontSize: '1.4rem',
-                    webkitFontSize: '1.4rem',
+                    fontSize: '1.2rem',
+                    webkitFontSize: '1.2rem',
                     userSelect: 'text',
-                    fontWeight: 'var(--weight-3)',
+                    fontWeight: 'var(--weight-4)',
                     position: 'fixed',
                     zIndex: 9,
                 },

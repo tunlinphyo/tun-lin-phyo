@@ -13,7 +13,7 @@
     --weight-3: 300;
     --weight-4: 400;
     --weight-5: 500;
-    --weight-6: 700;
+    --weight-6: 800;
     --weight-7: 900;
 
     --max-width: 1200px;
@@ -64,7 +64,6 @@
 
             & h2 {
                 font-size: clamp(1.2rem, 7vw, 2.5rem);
-                font-weight: var(--weight-3);
             }
 
             .scroll-reveal--title {
@@ -72,6 +71,12 @@
                 z-index: 4;
                 top: 8px;
                 text-align: center;
+                font-weight: var(--weight-6);
+                
+                &.css-scroll-reveal > span {
+                    background-image: linear-gradient(to right, var(--surface-1), var(--text-4));
+                    -webkit-text-stroke: 1px var(--text-4);
+                }
 
                 @media (min-width: 992px) {
                     z-index: 6;

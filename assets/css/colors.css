@@ -1,6 +1,6 @@
 :root {
     /* BDF  */
-
+/* 
     --deg-30: #F99;
     --deg-60: #FC9;
     --deg-90: #FF9;
@@ -13,19 +13,32 @@
     --deg-300: #C9F;
     --deg-330: #F9F;
     --deg-360: #F9C;
-/*
-    --deg-30: #7b7b7b;
-    --deg-60: #434343;
-    --deg-90: #7b7b7b;
-    --deg-120: #434343;
-    --deg-150: #7b7b7b;
-    --deg-180: #434343;
-    --deg-210: #7b7b7b;
-    --deg-240: #434343;
-    --deg-270: #7b7b7b;
+
+    --deg-30: #d9d9d9;
+    --deg-60: #c4c4c4;
+    --deg-90: #a8a8a8;
+    --deg-120: #9d9d9d;
+    --deg-150: #8a8a8a;
+    --deg-180: #7b7b7b;
+    --deg-210: #646464;
+    --deg-240: #555555;
+    --deg-270: #505050;
     --deg-300: #434343;
-    --deg-330: #7b7b7b;
-    --deg-360: #434343; */
+    --deg-330: #373737;
+    --deg-360: #262626;
+     */
+    --deg-30: #FDD;
+    --deg-60: #FED;
+    --deg-90: #FFD;
+    --deg-120: #EFD;
+    --deg-150: #DFD;
+    --deg-180: #DFE;
+    --deg-210: #DFF;
+    --deg-240: #DEF;
+    --deg-270: #DDF;
+    --deg-300: #EDF;
+    --deg-330: #FDF;
+    --deg-360: #FDE;
 
     /* @media (prefers-color-scheme: dark) {
         --deg-30: #FDD;

@@ -1,6 +1,17 @@
 :root {
   --hue: 200;
 
+  /* --swatch-1: #ffffff;
+  --swatch-2: #fafafa;
+  --swatch-3: #f5f5f5;
+  --swatch-4: #f0f0f0;
+  --swatch-5: #dedede;
+  --swatch-6: #c2c2c2;
+  --swatch-7: #979797;
+  --swatch-8: #818181;
+  --swatch-9: #606060;
+  --swatch-10: #3c3c3c; */
+
   --swatch-1: #f5f5f5;
   --swatch-2: #e9e9e9;
   --swatch-3: #d9d9d9;
@@ -12,6 +23,7 @@
   --swatch-9: #262626;
   --swatch-10: #000000;
 
+
   --text-1: var(--swatch-3);
   --text-2: var(--swatch-4);
   --text-3: var(--swatch-5);
@@ -21,25 +33,31 @@
   --surface-3: var(--swatch-8);
   --surface-4: var(--swatch-7);
 
-  --primary: #F007;
+  --primary: #F009;
   --color: #6d1810;
 
-  --neo-start: #F44;
-  --neo-end: #44F;
+  --neo-start: #F66;
+  --neo-end: #66F;
 
-  --neo-200-start: #966;
-  --neo-200-end: #669;
+  --neo-200-start: var(--text-4);
+  --neo-200-end: var(--text-4);
 
-  --neo-100-start: #FAA;
-  --neo-100-end: #AAF;
+  /* @media (prefers-color-scheme: dark) {
 
+    --swatch-1: #f5f5f5;
+    --swatch-2: #e9e9e9;
+    --swatch-3: #d9d9d9;
+    --swatch-4: #c4c4c4;
+    --swatch-5: #9d9d9d;
+    --swatch-6: #7b7b7b;
+    --swatch-7: #555555;
+    --swatch-8: #434343;
+    --swatch-9: #262626;
+    --swatch-10: #000000;
 
-  /* --neo-start: #f5f5f5;
-  --neo-end: #9d9d9d;
-
-  --neo-200-start: #9d9d9d;
-  --neo-200-end: #7b7b7b;
-
-  --neo-100-start: #FAA;
-  --neo-100-end: #AAF; */
+    --primary: #F007;
+  
+    --neo-start: #FAA;
+    --neo-end: #AAF;
+  } */
 }

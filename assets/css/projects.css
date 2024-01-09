@@ -163,7 +163,7 @@
                             margin: 0;
                             padding-bottom: var(--space-3);
                             font-size: clamp(1.6rem, 6vw, 2.4rem);
-                            font-weight: var(--weight-3);
+                            font-weight: var(--weight-6);
                             position: relative;
                             text-align: left;
 
@@ -173,15 +173,17 @@
                                 -webkit-background-clip: text;
                                 background-repeat: no-repeat;
                                 background-size: 100%;
-                                background-image: linear-gradient(90deg, var(--neo-start), var(--neo-end));
+                                /* background-image: linear-gradient(90deg, var(--neo-start), var(--neo-end)); */
+                                background-image: linear-gradient(to right, var(--surface-1), var(--text-3));
+                                -webkit-text-stroke: 1px var(--text-3);
                             }
 
                             &::after {
                                 content: '';
                                 display: block;
                                 width: 100px;
-                                height: 3px;
-                                border-radius: 3px;
+                                height: 4px;
+                                border-radius: 4px;
                                 background-image: linear-gradient(90deg, var(--neo-start), var(--neo-end));
 
                                 position: absolute;
@@ -233,18 +235,38 @@
 
                             > a {
                                 text-transform: uppercase;
-                                letter-spacing: 5px;
+                                font-weight: var(--weight-7);
+                                font-size: 1.1rem;
+                                letter-spacing: 6px;
                                 padding: 2px 6px 2px 12px;
 
+                                > span {
+                                    background-repeat: no-repeat, no-repeat;
+                                    background-size: 0% 100%, 100% 100%;
+                                    background-position: top left, top right;
+                                    background-image:
+                                        linear-gradient(to right, var(--neo-start), var(--neo-end)),
+                                        linear-gradient(to right, var(--surface-3), var(--text-2))
+                                    ;
+                                    /* -webkit-text-stroke: 1px var(--surface-4); */
+    
+                                    transition: background-size .3s ease;
+                                }
+
+
                                 &:hover {
-                                    background-repeat: no-repeat;
+                                    /* background-repeat: no-repeat;
                                     background-position: top left, bottom left;
                                     background-size: 1px 100%, 1px 100%;
                                     background-image:
                                         linear-gradient(90deg, var(--neo-start), var(--neo-end)),
                                         linear-gradient(90deg, var(--neo-start), var(--neo-end))
                                     ;
-                                    animation: underline .3s ease forwards;
+                                    animation: underline .3s ease forwards; */
+
+                                    > span {
+                                        background-size: 100% 100%, 0% 100%;
+                                    }
                                 }
                             }
 
