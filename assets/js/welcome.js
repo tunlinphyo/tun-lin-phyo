@@ -1,3 +1,5 @@
+import anime from 'animejs/lib/anime.es.js'
+
 export default class Welcome {
     constructor(elem) {
         this.welcome = document.querySelector(elem)
@@ -29,10 +31,10 @@ export default class Welcome {
                 {
                     top: `${endRect.y}px`,
                     left: `${endRect.x}px`,
-                    fontSize: '1.4rem',
-                    webkitFontSize: '1.4rem',
+                    fontSize: '1.1rem',
+                    webkitFontSize: '1.1rem',
                     userSelect: 'text',
-                    fontWeight: 'var(--weight-3)',
+                    fontWeight: 'var(--weight-4)',
                     position: 'fixed',
                     zIndex: 9,
                 },
@@ -47,6 +49,31 @@ export default class Welcome {
         )
         document.body.style.overflow = 'initial'
         document.querySelector('.intro--container').classList.add('show-child')
+        anime({
+            targets: '.show-child > *:not(.welcome)',
+            opacity: [0, 1],
+            translateY: ['300px', '0px'],
+            easing: 'easeOutBounce',
+        })
+
+        const gallery = document.querySelector('.gallery')
+
+        const animation = anime({
+            targets: gallery,
+            translateX: ['-20%', '-20%'],
+            rotate: ['186deg', '-6deg'],
+            duration: 3000,
+            begin() {
+                gallery.style.pointerEvents = 'none'
+            },
+            complete() {
+                gallery.style.pointerEvents = 'auto'
+            }
+        })
+
+        gallery.addEventListener('click', () => {
+            animation.play()
+        })
     }
 }
 

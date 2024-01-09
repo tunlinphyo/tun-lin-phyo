@@ -4,6 +4,14 @@ export default class ScrollTimeline extends ScrollBase {
     constructor(elem, allElem) {
         super(elem)
         this.elems = this.elem.querySelectorAll(allElem)
+
+        // this.init()
+    }
+
+    init() {
+        Array.from(this.elems).forEach(elem => {
+            this.titleScrollTimeline(elem)
+        })
     }
 
     onScroll() {
@@ -35,7 +43,7 @@ export default class ScrollTimeline extends ScrollBase {
             start = window.innerHeight * 0.75
             end = window.innerHeight * 1
         }
-    
+
         const range = this.mapRange(rect.top, start, end, 100, 0)
         elem.style.setProperty('--bg-size', `${Math.max(0, range)}%`)
     }

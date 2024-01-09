@@ -1,9 +1,13 @@
+import anime from 'animejs/lib/anime.es.js'
+import disableScroll from 'disable-scroll'
+
 export default class ToggleCard {
     constructor(elem) {
         this.elem = document.querySelector(elem)
         this.cards = this.elem.querySelectorAll('.technical--card-inner')
         this.layer = document.querySelector('.technical--layer')
         this.handleClick = this.handleClick.bind(this)
+
         this.subscribe()
     }
 
@@ -14,8 +18,7 @@ export default class ToggleCard {
     }
 
     async openCard(elem) {
-        this.layer.classList.add('show')
-
+        disableScroll.on()
         const domRect = elem.querySelector('.technical--card-card').getBoundingClientRect()
         elem.classList.add('opened')
 
@@ -24,83 +27,87 @@ export default class ToggleCard {
         const parent = elem.parentElement
         parent.style.height = `${domRect.height}px`
 
-        elem.animate(
-            [
-                {
-                    top: `${domRect.y}px`,
-                    left: `${domRect.x}px`,
-                    width: `${domRect.width}px`,
-                    height: `${domRect.height}px`,
-                    zIndex: 0,
-                },
-                {
-                    top: `${endRect.y}px`,
-                    left: `${endRect.x}px`,
-                    width: `${endRect.width}px`,
-                    height: `${endRect.height}px`,
-                    zIndex: 9,
-                },
-            ],
-            { duration: 500, easing: 'ease' }
-        )
+        const animation = anime({
+            targets: elem,
+            position: 'fixed',
+            top: [`${domRect.y}px`, `${endRect.y}px`],
+            left: [`${domRect.x}px`, `${endRect.x}px`],
+            width: [`${domRect.width}px`, `${endRect.width}px`],
+            height: [`${domRect.height}px`, `${endRect.height}px`],
+            zIndex: [9, 9],
+            begin: () => {
+                elem.style.pointerEvents = 'none'
+            },
+            update: (anim) => {
+                if (Math.round(anim.progress) >= 5 && Math.round(anim.progress) <= 10) {
+                    this.layer.classList.add('show')
+                }
+                if (Math.round(anim.progress) >= 30 && Math.round(anim.progress) <= 35) {
+                    this.animateSkills(elem)
+                }
+            },
+            easing: 'easeOutElastic',
+            // duration: 500,
+        });
 
-        await Promise.allSettled(
-            elem.getAnimations().map(animation =>
-                animation.finished
-            )
-        )
-        this.openEnd(elem)
+        animation.finished.then(() => {
+            elem.style.pointerEvents = 'auto'
+            elem.removeAttribute('style')
+            this.openEnd(elem)
+        })
     }
 
     async closeCard(elem) {
-        this.layer.classList.remove('show')
-
+        disableScroll.off()
         const domRect = elem.querySelector('.technical--card-card').getBoundingClientRect()
         elem.classList.remove('opened')
 
         const endRect = elem.querySelector('.technical--card-card').getBoundingClientRect()
+        elem.style.position = 'fixed'
 
-        elem.animate(
-            [
-                {
-                    top: `${domRect.y}px`,
-                    left: `${domRect.x}px`,
-                    width: `${domRect.width}px`,
-                    height: `${domRect.height}px`,
-                    position: 'fixed',
-                    zIndex: 9,
-                },
-                {
-                    top: `${endRect.y}px`,
-                    left: `${endRect.x}px`,
-                    width: `${endRect.width}px`,
-                    height: `${endRect.height}px`,
-                    position: 'fixed',
-                    zIndex: 0,
-                },
-            ],
-            { duration: 500, easing: 'ease' }
-        )
-        await Promise.allSettled(
-            elem.getAnimations().map(animation =>
-                animation.finished
-            )
-        )
-        this.closeEnd(elem)
+        const animation = anime({
+            targets: elem,
+            top: [`${domRect.y}px`, `${endRect.y}px`],
+            left: [`${domRect.x}px`, `${endRect.x}px`],
+            width: [`${domRect.width}px`, `${endRect.width}px`],
+            height: [`${domRect.height}px`, `${endRect.height}px`],
+            begin: () => {
+                elem.style.zIndex = 9
+                elem.style.pointerEvents = 'none'
+                this.layer.classList.remove('show')
+            },
+            update: (anim) => {
+                if (Math.round(anim.progress) >= 5 && Math.round(anim.progress) <= 10) {
+                    elem.style.zIndex = 0
+                }
+            },
+            easing: 'easeOutElastic',
+            // duration: 500,
+        });
+
+        animation.finished.then(() => {
+            elem.style.position = 'initial'
+            elem.style.pointerEvents = 'auto'
+            elem.removeAttribute('style')
+            this.closeEnd(elem)
+        })
     }
 
+    animateSkills(elem) {
+        console.log('SKILLS')
+        elem.querySelector('.technical--content').style.opacity = 1
+
+        anime({
+            targets: elem.querySelector('.technical--content'),
+            opacity: [0, 1],
+            scale: [.5, 1],
+            easing: 'easeOutExpo',
+            duration: 500
+        })
+    }
 
     openEnd(elem) {
         elem.querySelector('.technical--card_more').textContent = 'Close'
-        elem.querySelector('.technical--content').style.opacity = 1
-
-        elem.querySelector('.technical--content').animate(
-            [
-                { opacity: 0, transform: 'scale(.5)', transformOrigin: 'left' },
-                { opacity: 1, transform: 'scale(1)', transformOrigin: 'left' },
-            ],
-            { duration: 200, easing: 'ease' }
-        )
     }
 
     closeEnd(elem) {

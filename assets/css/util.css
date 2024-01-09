@@ -13,9 +13,10 @@
     --weight-3: 300;
     --weight-4: 400;
     --weight-5: 600;
-    --weight-6: 800;
+    --weight-6: 700;
 
-    --max-width: 1200px;
+    --max-width: 1300px;
+    --space-h: clamp(var(--space-4), 4vw, var(--space-7));
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;

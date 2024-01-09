@@ -6,7 +6,7 @@
         max-width: var(--max-width);
         min-height: 100vh;
         margin: 0 auto;
-        padding: var(--space-4);
+        padding: var(--space-4) var(--space-h);
 
         @media (max-width: 400px) {
             padding: var(--space-2);
@@ -47,18 +47,10 @@
                 border: 1px solid var(--surface-4);
                 background-color: var(--surface-2);
                 position: sticky;
+                position: -webkit-sticky;
                 top: 10vh;
 
-                /* transform: rotate(.3deg);
-                &:nth-child(odd) {
-                    transform: rotate(-.3deg);
-                } */
-
                 @media (min-width: 768px) {
-                    /* transform: rotate(.5deg);
-                    &:nth-child(odd) {
-                        transform: rotate(-.5deg);
-                    } */
                     &:nth-child(even) .project--card {
                         grid-template-areas: "end start";
                     }
@@ -69,7 +61,7 @@
                     height: 100%;
                     display: grid;
                     grid-template-columns: minmax(0, 1fr);
-                    grid-template-rows: minmax(0, .8fr) minmax(0, 1fr);
+                    grid-template-rows: minmax(0, .7fr) minmax(0, 1fr);
                     grid-template-areas:
                         "start"
                         "end"
@@ -86,7 +78,7 @@
                     }
 
                     @media (min-width: 992px) {
-                        gap: var(--space-4);
+                        gap: var(--space-5);
                     }
 
                     .project--start {

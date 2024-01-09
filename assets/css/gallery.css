@@ -5,6 +5,7 @@
     max-inline-size: 280px;
     display: grid;
     overflow: hidden;
+    cursor: pointer;
 
     transform: translateX(-20%) rotate(-6deg);
     opacity: .7;

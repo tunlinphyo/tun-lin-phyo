@@ -12,6 +12,8 @@
     "vite": "^4.3.2"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
+    "disable-scroll": "^0.6.0",
     "onscrolling": "^1.0.0"
   }
 }
