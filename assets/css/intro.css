@@ -103,9 +103,9 @@
                 -webkit-background-clip: text;
                 background-repeat: no-repeat;
                 background-size: 100%;
-                /* background-image: linear-gradient(135deg, var(--neo-start), var(--neo-end)); */
-                background-image: linear-gradient(to right, var(--surface-1), var(--text-3));
-                -webkit-text-stroke: 1px var(--text-3);
+                background-image: linear-gradient(135deg, var(--neo-start), var(--neo-end));
+                /* background-image: linear-gradient(to right, #F00, #00F);
+                -webkit-text-stroke: 1px #00F; */
 
                 @media (min-width: 992px) {
                     font-size: clamp(2rem, 5.9vw, 8rem);
