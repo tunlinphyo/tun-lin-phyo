@@ -27,7 +27,7 @@
         max-width: var(--max-width);
         height: 100%;
         margin: 0 auto;
-        padding: var(--space-4);
+        padding: var(--space-4) var(--space-h);
         position: relative;
         overflow: hidden;
         display: flex;
@@ -35,16 +35,16 @@
 
         .footer--start {
             position: absolute;
+            z-index: 1;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -40%);
             width: 100%;
             max-width: var(--max-width);
             padding: var(--space-4);
-            /* background-color: var(--primary); */
-            background-repeat: no-repeat;
+            /* background-repeat: no-repeat;
             background-size: var(--bg-size, 0%) 100%;
-            background-image: linear-gradient(90deg, var(--neo-start), var(--neo-end));
+            background-image: linear-gradient(90deg, var(--neo-start), var(--neo-end)); */
             display: flex;
             flex-direction: column;
             gap: var(--space-1) var(--space-4);
@@ -52,51 +52,56 @@
             color: hsl(0 0% 100% / 0);
 
             @media (min-width: 768px) {
-                flex-direction: row;
+                /* flex-direction: row; */
             }
 
             @media (min-width: 992px) {
-                flex-direction: row;
                 width: calc(100% - var(--space-6));
             }
 
             > a {
                 text-decoration: none;
 
+                font-weight: var(--weight-7);
+                font-size: clamp(1.2rem, 4vw, 3rem);
+
                 color: hsl(0 0% 100% / 0);
-                background-clip: text;
-                -webkit-background-clip: text;
-                background-repeat: no-repeat;
-                /* background-size: 0% 100%; */
-                background-image: linear-gradient(to right, var(--neo-100-start), var(--neo-100-end));
 
                 > span {
                     padding: 5px 10px;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    background-repeat: no-repeat, no-repeat;
+                    background-size: 0% 100%, 100% 100%;
+                    background-position: top left, top right;
+                    background-image:
+                        linear-gradient(to right, var(--neo-start), var(--neo-end)),
+                        linear-gradient(to right, var(--surface-1), var(--surface-4))
+                    ;
+                    -webkit-text-stroke: 1px var(--surface-4);
+
+                    transition: background-size .3s ease;
                 }
 
                 &:hover {
                     > span {
-                        background-repeat: no-repeat;
-                        background-position: top left, bottom left;
-                        background-size: 1px 100%, 1px 100%;
-                        background-image:
-                            linear-gradient(90deg, var(--neo-100-start), var(--neo-100-end)),
-                            linear-gradient(90deg, var(--neo-100-start), var(--neo-100-end))
-                        ;
-                        animation: underline .3s ease forwards;
+                        background-size: 100% 100%, 0% 100%;
                     }
                 }
             }
         }
 
         > h3 {
+            position: relative;
+            z-index: 0;
             font-size: clamp(2rem, 12vw, 6rem);
             line-height: 1;
             margin: 2rem 0;
             font-weight: var(--weight-6);
-            color: var(--surface-4);
+            color: var(--surface-1);
             transform: translate(40%, -30%) rotate(-10deg);
-            text-shadow: .12em .12em 0 var(--swatch-9);
+            text-shadow: .12em .12em 0 var(--surface-2);
+            -webkit-text-stroke: 1px var(--surface-2);
 
             @media (min-width: 992px) {
                 transform: translate(20%, -30%) rotate(-20deg);

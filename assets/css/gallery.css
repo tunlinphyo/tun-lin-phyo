@@ -10,16 +10,16 @@
     opacity: .7;
     background-image: linear-gradient(to bottom, var(--neo-start), var(--neo-end));
 
+    &.rotate {
+        animation: rotate .5s ease;
+    }
+
     @media (max-width: 500px) {
         transform: translate(-20%, -20%) rotate(-6deg);
 
         &.rotate {
             animation: sm-rotate .5s ease;
         }
-    }
-
-    &.rotate {
-        animation: rotate .5s ease;
     }
 
     > * {
