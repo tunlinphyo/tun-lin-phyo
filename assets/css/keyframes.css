@@ -49,6 +49,24 @@
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: translateX(-20%) rotate(366deg);
+  }
+  to {
+    transform: translateX(-20%) rotate(-6deg);
+  }
+}
+
+@keyframes sm-rotate {
+  from {
+    transform: translate(-20%, -20%) rotate(366deg);
+  }
+  to {
+    transform: translateX(-20%, -20%) rotate(-6deg);
+  }
+}
+
 @keyframes fide-in {
   from {
     opacity: 0;

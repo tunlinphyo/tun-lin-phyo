@@ -1,3 +1,5 @@
+import disableScroll from 'disable-scroll'
+
 export default class ToggleCard {
     constructor(elem) {
         this.elem = document.querySelector(elem)
@@ -14,6 +16,7 @@ export default class ToggleCard {
     }
 
     async openCard(elem) {
+        disableScroll.on()
         this.layer.classList.add('show')
 
         const domRect = elem.querySelector('.technical--card-card').getBoundingClientRect()
@@ -53,6 +56,7 @@ export default class ToggleCard {
     }
 
     async closeCard(elem) {
+        disableScroll.off()
         this.layer.classList.remove('show')
 
         const domRect = elem.querySelector('.technical--card-card').getBoundingClientRect()

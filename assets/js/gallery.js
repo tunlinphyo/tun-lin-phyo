@@ -16,7 +16,7 @@ export default class Gallery {
 
         leftIndex = this.increaseIndex(this.leftImages, leftIndex)
         rightIndex = this.increaseIndex(this.rightImages, rightIndex)
-    
+
         const checkTime = () => {
             if (increase) {
                 if (currentNum < 110) {
@@ -33,11 +33,11 @@ export default class Gallery {
                     leftIndex = this.increaseIndex(this.leftImages, leftIndex)
                 }
             }
-    
+
             this.setCssProperty(currentNum)
             requestAnimationFrame(checkTime)
         }
-    
+
         requestAnimationFrame(checkTime)
     }
 

@@ -47,6 +47,7 @@ export default class Welcome {
         )
         document.body.style.overflow = 'initial'
         document.querySelector('.intro--container').classList.add('show-child')
+        document.querySelector('.gallery').classList.add('rotate')
     }
 }
 
